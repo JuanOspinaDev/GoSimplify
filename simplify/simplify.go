@@ -11,9 +11,13 @@ func Str(i int) string {
 	return strconv.Itoa(i)
 }
 
-// Int intenta convertir un string a entero.
-func Int(s string) (int, error) {
-	return strconv.Atoi(s)
+// Int convierte un string a entero y retorna 0 si la conversión falla.
+func Int(s string) int {
+    i, err := strconv.Atoi(s)
+    if err != nil {
+        return 0 // Retorna 0 si hay error
+    }
+    return i
 }
 
 // Pop elimina y devuelve el último elemento de un slice de enteros.
